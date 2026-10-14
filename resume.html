@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Balasubaramani T | Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #0284c7;
+      --text-dark: #1e293b;
+      --text-muted: #475569;
+      --border-color: #cbd5e1;
+      --bg-page: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-dark);
+      line-height: 1.5;
+      font-size: 13.5px;
+      padding: 2rem 1rem;
+    }
+
+    /* Floating action toolbar for screen view */
+    .screen-action-bar {
+      max-width: 850px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      padding: 0.9rem 1.4rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    .bar-brand {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bar-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-print {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-print:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }
+
+    .btn-back {
+      background: #334155;
+      color: #f8fafc;
+    }
+
+    .btn-back:hover {
+      background: #475569;
+    }
+
+    /* Resume Document Canvas */
+    .resume-canvas {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2.75rem 3rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    /* Header */
+    .resume-header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.4rem;
+      text-align: center;
+    }
+
+    .resume-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .resume-target-role {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .resume-contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem 0.9rem;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .resume-contact-line a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .resume-contact-line a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-sep {
+      color: #94a3b8;
+    }
+
+    /* Section Structure */
+    .resume-section {
+      margin-bottom: 1.35rem;
+    }
+
+    .section-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .section-title i {
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    .summary-text {
+      color: #334155;
+      font-size: 12.5px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* Technical Skills Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .skills-table td {
+      padding: 0.35rem 0;
+      vertical-align: top;
+    }
+
+    .skills-category {
+      font-weight: 700;
+      color: var(--primary);
+      width: 190px;
+    }
+
+    .skills-list {
+      color: var(--text-muted);
+    }
+
+    .skills-list strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* Experience & Projects Blocks */
+    .entry-block {
+      margin-bottom: 1.15rem;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+
+    .entry-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .entry-company {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .entry-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .entry-location {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .entry-bullets {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .entry-bullets li {
+      color: #334155;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .entry-bullets li strong {
+      color: var(--text-dark);
+    }
+
+    /* Education & Certifications */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .certs-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1.5rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .certs-list li {
+      font-size: 12.5px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .certs-list li i {
+      color: var(--accent);
+      font-size: 10px;
+    }
+
+    /* Honors highlight */
+    .honor-highlight {
+      background: #f8fafc;
+      border-left: 3px solid #f59e0b;
+      padding: 0.55rem 0.85rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 12.5px;
+      color: #1e293b;
+      margin-top: 0.45rem;
+    }
+
+    /* ===================================================================
+       PRINT STYLES (For 1-2 Clean Page ATS Export & PDF Saving)
+       =================================================================== */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        font-size: 12px;
+        color: #000;
+      }
+
+      .screen-action-bar {
+        display: none !important;
+      }
+
+      .resume-canvas {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0.5in 0.6in !important;
+        max-width: 100% !important;
+      }
+
+      .resume-header {
+        border-bottom: 2px solid #000;
+      }
+
+      .section-title {
+        border-bottom: 1px solid #999;
+        color: #000;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+
+      .entry-company {
+        color: #000 !important;
+        font-weight: 700;
+      }
+
+      @page {
+        margin: 0.4in;
+        size: letter;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar -->
+  <div class="screen-action-bar">
+    <div class="bar-brand">
+      <i class="fa-solid fa-file-pdf"></i> Balasubaramani T &mdash; Official Resume
+    </div>
+    <div class="bar-actions">
+      <a href="index.html" class="btn-action btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+      </a>
+      <button onclick="window.print()" class="btn-action btn-print">
+        <i class="fa-solid fa-print"></i> Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Resume Content Canvas -->
+  <div class="resume-canvas">
+    
+    <!-- Header -->
+    <header class="resume-header">
+      <h1 class="resume-name">BALASUBARAMANI T</h1>
+      <div class="resume-target-role">Software Developer</div>
+      <div class="resume-contact-line">
+        <span><i class="fa-solid fa-location-dot"></i> Vellore, India</span>
+        <span class="contact-sep">|</span>
+        <span><i class="fa-solid fa-phone"></i> +91 9003881005</span>
+        <span class="contact-sep">|</span>
+        <span><i class="fa-solid fa-envelope"></i> <a href="mailto:balatharun64@gmail.com">balatharun64@gmail.com</a></span>
+        <span class="contact-sep">|</span>
+        <span><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/bala-subaramani-6701b3241/" target="_blank">linkedin.com/in/bala-subaramani-6701b3241</a></span>
+        <span class="contact-sep">|</span>
+        <span><i class="fa-solid fa-globe"></i> <a href="https://balat.netlify.app" target="_blank">balat.netlify.app</a></span>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-user-tie"></i> Professional Summary</h2>
+      <p class="summary-text">
+        Software Developer with 2+ years of professional experience in software testing, full-stack engineering, and microservices architecture, having successfully delivered 20+ freelance and enterprise projects.
+        Experienced in building Selenium-based automated testing frameworks, developing high-performance REST APIs with Java and Spring Boot,
+        managing SQL databases, and supporting robust CI/CD workflows using Jenkins and GitHub Actions. Proven track record in debugging,
+        team coordination, and client communication with an unwavering focus on software quality and reliable delivery within the cybersecurity domain.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-laptop-code"></i> Technical Skills</h2>
+      <table class="skills-table">
+        <tr>
+          <td class="skills-category">Languages</td>
+          <td class="skills-list"><strong>Java</strong>, <strong>JavaScript (ES6+)</strong>, <strong>Python</strong>, <strong>SQL</strong></td>
+        </tr>
+        <tr>
+          <td class="skills-category">Backend &amp; APIs</td>
+          <td class="skills-list"><strong>Microservices</strong>, <strong>Spring Boot</strong>, <strong>REST APIs</strong>, <strong>Node.js</strong></td>
+        </tr>
+        <tr>
+          <td class="skills-category">Frontend &amp; Mobile</td>
+          <td class="skills-list"><strong>React.js</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>Bootstrap</strong>, <strong>Flutter</strong></td>
+        </tr>
+        <tr>
+          <td class="skills-category">Databases</td>
+          <td class="skills-list"><strong>MySQL</strong>, <strong>Microsoft SQL Server</strong>, Query Optimization &amp; Indexing</td>
+        </tr>
+        <tr>
+          <td class="skills-category">Testing &amp; QA</td>
+          <td class="skills-list"><strong>Selenium WebDriver</strong>, <strong>JSoup</strong>, <strong>JUnit</strong>, <strong>TestNG</strong>, <strong>Postman</strong></td>
+        </tr>
+        <tr>
+          <td class="skills-category">CI/CD &amp; DevOps</td>
+          <td class="skills-list"><strong>Jenkins</strong>, <strong>GitHub Actions</strong>, <strong>Docker</strong>, <strong>Maven</strong>, <strong>Git</strong></td>
+        </tr>
+        <tr>
+          <td class="skills-category">Security &amp; Monitoring</td>
+          <td class="skills-list"><strong>Wazuh SIEM</strong> (File Integrity Monitoring &amp; Attribution Rules)</td>
+        </tr>
+        <tr>
+          <td class="skills-category">Practices &amp; Leadership</td>
+          <td class="skills-list"><strong>OOP</strong>, <strong>Data Structures &amp; Algorithms</strong>, SDLC, Agile/Scrum, Code Review, Team Leadership, Mentoring, Client Communication</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+
+      <!-- APCS Technologies -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Software Developer &amp; Team Lead</span> &mdash;
+            <span class="entry-company">APCS Technologies</span>
+          </div>
+          <div class="entry-date">March 2024 &ndash; Present</div>
+        </div>
+        <div class="entry-location" style="margin-bottom: 0.25rem;">Vellore, India | Cybersecurity Domain (HSS Account)</div>
+        <ul class="entry-bullets">
+          <li><strong>Team Leadership &amp; Code Quality:</strong> Lead and coordinate the development team on the HSS cybersecurity account: allocate tasks, mentor engineers, and conduct rigorous code reviews to maintain exceptional code standards and beat delivery deadlines.</li>
+          <li><strong>Client Relations &amp; Reporting:</strong> Serve as the primary technical contact for clients: translate functional business requirements into actionable technical tasks, providing transparent progress metrics and stakeholder reporting.</li>
+          <li><strong>Custom Automation Framework:</strong> Designed and built an end-to-end automation framework for hardware/printer testing and validation using Selenium WebDriver, SQL, and JSoup, cutting manual QA overhead significantly.</li>
+          <li><strong>Backend &amp; Microservices:</strong> Architect and implement robust backend services and REST APIs with Java and Spring Boot, accompanied by comprehensive JUnit unit and integration test suites.</li>
+          <li><strong>CI/CD Pipelines:</strong> Orchestrate and optimize automated build, testing, and deployment pipelines using Jenkins and GitHub Actions.</li>
+          <li><strong>Database Optimization:</strong> Profile and optimize complex SQL queries and request pipelines to elevate application throughput.</li>
+        </ul>
+      </div>
+
+      <!-- Knackbay -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Full Stack Developer Intern</span> &mdash;
+            <span class="entry-company">Knackbay</span>
+          </div>
+          <div class="entry-date">November 2023 &ndash; February 2024</div>
+        </div>
+        <div class="entry-location" style="margin-bottom: 0.25rem;">Vellore, India</div>
+        <ul class="entry-bullets">
+          <li>Engineered dynamic, accessible UI components for enterprise internal applications and integrated them with Java RESTful web services.</li>
+          <li>Collaborated effectively within a multi-developer agile codebase, delivering features across both frontend and backend layers.</li>
+          <li>Adhered to Git version control workflows, architectural documentation best practices, and active participation in peer code reviews.</li>
+          <li>Executed thorough functional testing, defect isolation, and debugging to ensure optimal user experience.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-folder-tree"></i> Featured Projects</h2>
+
+      <!-- TaskFlow -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">TaskFlow &mdash; Project Management System</span> | Full-Stack Web Application
+          </div>
+          <div class="entry-date"><a href="https://project-management-system-mauve.vercel.app/login" target="_blank" style="color:var(--accent); font-weight:700;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a></div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Built a full-stack project and task management system featuring user authentication, role-based authorization, task assignments, Kanban status workflows, and interactive project analytics dashboards.</li>
+          <li>Tech Stack: React.js, Node.js, Express, REST APIs, Database, Tailwind CSS.</li>
+        </ul>
+      </div>
+
+      <!-- Online Election Voting Platform -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Online Election Voting Platform</span> | Full-Stack Freelance Project
+          </div>
+          <div class="entry-date">Completed</div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Developed a web-based electronic voting platform for college elections covering biometric/multi-factor voter verification, cryptographic ballot casting, and real-time tallying with strict safeguards against fraud and duplicate votes.</li>
+        </ul>
+      </div>
+
+      <!-- Document Integrity Wazuh -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Document Integrity &amp; Change Tracking System</span> | Cybersecurity Freelance
+          </div>
+          <div class="entry-date">Completed</div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Implemented real-time File Integrity Monitoring (FIM) with Wazuh SIEM to detect unauthorized file access and modifications. Engineered custom attribution rules to produce complete, immutable audit trails.</li>
+        </ul>
+      </div>
+
+      <!-- Containerized Deployment -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Containerized Application Deployment Pipeline</span> | DevOps Freelance
+          </div>
+          <div class="entry-date">Completed</div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Containerized multi-service web applications using Docker, standardizing development environments, streamlining CI/CD pipelines, and ensuring zero-friction cross-platform deployments.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education & Achievements -->
+    <section class="resume-section">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+      <div class="edu-grid">
+        <div class="entry-block" style="margin-bottom:0.5rem;">
+          <div class="entry-header">
+            <div>
+              <span class="entry-title">Master of Technology (M.Tech) &mdash; Artificial Intelligence and Machine Learning</span><br>
+              <span class="entry-company">Birla Institute of Technology and Science (BITS), Pilani</span> &bull; Pilani, Rajasthan
+            </div>
+            <div class="entry-date">May 2025 &ndash; Present (Pursuing)</div>
+          </div>
+        </div>
+
+        <div class="entry-block" style="margin-bottom:0.5rem;">
+          <div class="entry-header">
+            <div>
+              <span class="entry-title">Bachelor of Engineering (B.E.) &mdash; Computer Science and Engineering</span><br>
+              <span class="entry-company">Kingston Engineering College</span> &bull; Vellore, India
+            </div>
+            <div class="entry-date">August 2019 &ndash; April 2023</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="honor-highlight">
+        <i class="fa-solid fa-award" style="color:#d97706; margin-right: 0.35rem;"></i>
+        <strong>Key Honor:</strong> Invited as <strong>Alumni Guest of Honour</strong> at Kingston Engineering College in recognition of distinguished early-career leadership and engineering contributions.
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="resume-section" style="margin-bottom:0;">
+      <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Certifications</h2>
+      <ul class="certs-list">
+        <li><i class="fa-solid fa-circle-check"></i> Certified Selenium Automation Tester (Java)</li>
+        <li><i class="fa-solid fa-circle-check"></i> Certified Full Stack Developer</li>
+        <li><i class="fa-solid fa-circle-check"></i> Advanced Diploma in Java Programming (ADJP)</li>
+        <li><i class="fa-solid fa-circle-check"></i> Diploma in Python Programming (DPP)</li>
+        <li><i class="fa-solid fa-circle-check"></i> Honours Diploma in Computer Application</li>
+      </ul>
+    </section>
+
+  </div>
+
+</body>
+</html>
