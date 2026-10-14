@@ -1,16 +1,19 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Balasubaramani T - Modern Portfolio & ATS Resume",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js",
+    "serve": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "portfolio",
+    "software-developer",
+    "full-stack",
+    "automation"
+  ],
+  "author": "Balasubaramani T",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^18.0.8",
