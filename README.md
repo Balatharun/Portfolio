@@ -3,6 +3,7 @@
 [![Portfolio](https://img.shields.io/badge/Live_Portfolio-balat.netlify.app-00f2fe?style=for-the-badge&logo=netlify)](https://balat.netlify.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-bala--subaramani-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/bala-subaramani-6701b3241/)
 [![Live App](https://img.shields.io/badge/TaskFlow-Live_Demo-4f46e5?style=for-the-badge&logo=vercel)](https://project-management-system-mauve.vercel.app/login)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Balatharun/Portfolio)
 
 A modern, responsive, cyber-secured portfolio website and ATS-compliant printable resume for **Balasubaramani T**, Software Developer & Team Lead with 2+ years of professional experience and 20+ freelance projects delivered worldwide.
 
