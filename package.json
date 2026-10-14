@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Balasubaramani T - Modern Portfolio & ATS Resume",
   "scripts": {
-    "dev": "node server.js",
-    "serve": "node server.js"
+    "dev": "node dev-server.js",
+    "serve": "node dev-server.js"
   },
   "keywords": [
     "portfolio",

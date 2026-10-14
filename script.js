@@ -592,49 +592,30 @@ function initSecurityFeatures() {
     }, 4000);
   };
 
-  // 1. Prevent Right-Click Context Menu globally
-  document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    showSecurityToast(
-      '🛡️ Content Protected',
-      'Right-click actions and image saving are restricted on Balasubaramani T’s portfolio.'
-    );
-    return false;
-  });
+  // 1. Prevent Right-Click and Drag ONLY on images and profile avatar
+  const protectedImages = document.querySelectorAll('img, .profile-card-outer, .profile-avatar-box');
+  protectedImages.forEach(el => {
+    el.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      showSecurityToast(
+        '🛡️ Image Protected',
+        'Profile photo and images are secured against direct download and right-click saving.'
+      );
+      return false;
+    });
 
-  // 2. Prevent drag of images and sensitive elements
-  const protectedAssets = document.querySelectorAll('img, .profile-card-outer, .secure-protected-asset');
-  protectedAssets.forEach(el => {
     el.addEventListener('dragstart', (e) => {
       e.preventDefault();
       return false;
     });
   });
 
-  // 3. Block Save Page (Ctrl+S) and View Source (Ctrl+U)
-  document.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
-      e.preventDefault();
-      showSecurityToast(
-        '🛡️ Protection Notice',
-        'Direct offline saving is disabled. Use the Resume button to download the official CV.'
-      );
-    }
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
-      e.preventDefault();
-      showSecurityToast(
-        '🛡️ Source Protected',
-        'Direct source inspection shortcut is restricted.'
-      );
-    }
-  });
-
   const securityBadge = document.getElementById('navSecurityBadge');
   if (securityBadge) {
     securityBadge.addEventListener('click', () => {
       showSecurityToast(
-        '🛡️ Portfolio Protection Active',
-        'Assets, images, and proprietary project details are protected with client-side DRM & anti-download shields.'
+        '🛡️ Image Protection Active',
+        'Profile photos and assets are protected against direct saving and dragging.'
       );
     });
   }
