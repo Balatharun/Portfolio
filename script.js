@@ -195,9 +195,15 @@ function initBackgroundCanvas() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
+  let resizeTimeout = null;
   window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (Math.abs(window.innerWidth - width) > 25) {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+    }, 150);
   });
 
   const particles = [];

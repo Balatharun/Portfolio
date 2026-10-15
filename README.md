@@ -1,6 +1,6 @@
 # 🚀 Balasubaramani T - Modern Portfolio & ATS Resume
 
-[![Portfolio](https://img.shields.io/badge/Live_Portfolio-balat.netlify.app-00f2fe?style=for-the-badge&logo=netlify)](https://balat.netlify.app)
+[![Portfolio](https://img.shields.io/badge/Live_Portfolio-balaportfolio--pi.vercel.app-000000?style=for-the-badge&logo=vercel)](https://balaportfolio-pi.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-bala--subaramani-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/bala-subaramani-6701b3241/)
 [![Live App](https://img.shields.io/badge/TaskFlow-Live_Demo-4f46e5?style=for-the-badge&logo=vercel)](https://project-management-system-mauve.vercel.app/login)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Balatharun/Portfolio)
@@ -71,4 +71,4 @@ Visit `http://localhost:8080` in your browser.
 * **Role**: Software Developer & Team Lead
 * **Email**: [balatharun64@gmail.com](mailto:balatharun64@gmail.com)
 * **LinkedIn**: [linkedin.com/in/bala-subaramani-6701b3241](https://www.linkedin.com/in/bala-subaramani-6701b3241/)
-* **Live Site**: [balat.netlify.app](https://balat.netlify.app)
+* **Live Site**: [balaportfolio-pi.vercel.app](https://balaportfolio-pi.vercel.app/)
