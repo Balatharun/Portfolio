@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume - Balasubaramani T | Software Developer</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -350,6 +353,9 @@
         font-size: 0.8rem;
       }
 
+      .btn-text-full { display: none; }
+      .btn-text-mobile { display: inline; }
+
       .resume-canvas {
         padding: 1.5rem 1rem;
         border-radius: 10px;
@@ -558,10 +564,14 @@
     </div>
     <div class="bar-actions">
       <a href="index.html" class="btn-action btn-back">
-        <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        <i class="fa-solid fa-arrow-left"></i> 
+        <span class="btn-text-full">Back to Portfolio</span>
+        <span class="btn-text-mobile">Portfolio</span>
       </a>
       <button onclick="window.print()" class="btn-action btn-print">
-        <i class="fa-solid fa-print"></i> Print / Save as PDF
+        <i class="fa-solid fa-print"></i> 
+        <span class="btn-text-full">Print / Save as PDF</span>
+        <span class="btn-text-mobile">Save PDF</span>
       </button>
     </div>
   </div>
