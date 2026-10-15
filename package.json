@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Balasubaramani T - Modern Portfolio & ATS Resume",
   "scripts": {
-    "build": "echo 'Static build ready'",
     "dev": "node dev-server.js",
     "serve": "node dev-server.js"
   },
